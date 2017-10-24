@@ -1,9 +1,12 @@
 package GUI;
+import factory.Factory;
+import Procesos.*;
 
 public class GUICliente extends javax.swing.JFrame {
-
+    private static Factory factory;
     public GUICliente() {
         initComponents();
+        factory = new Factory();
     }
 
     /**
@@ -17,7 +20,7 @@ public class GUICliente extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_agenda = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         MenuBar_Principal = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
@@ -34,8 +37,13 @@ public class GUICliente extends javax.swing.JFrame {
         jButton2.setText("Plan de compra");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 47, 168, 119));
 
-        jButton3.setText("Directorio de vendedores");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(653, 47, 168, 119));
+        btn_agenda.setText("Agenda de vendedores");
+        btn_agenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agendaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_agenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(653, 47, 168, 119));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente/fondo4.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1130, 560));
@@ -68,6 +76,12 @@ public class GUICliente extends javax.swing.JFrame {
     private void menuItem_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_salirActionPerformed
         System.exit(0); //Este codigo cierra todo el programa, no solo cierra el Form
     }//GEN-LAST:event_menuItem_salirActionPerformed
+
+    private void btn_agendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agendaActionPerformed
+        DirectorioVendedores agenda = factory.directorioVendedores();
+        agenda.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_agendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,9 +121,9 @@ public class GUICliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar_Principal;
+    private javax.swing.JButton btn_agenda;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem menuItem_AcercaDe;
