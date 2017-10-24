@@ -16,6 +16,7 @@ import SistemaBD.*;
  */
 public class Inventario extends javax.swing.JFrame {
     private static Factory factory;
+    static String usuario;
     /**
      * Creates new form Inventario
      */
@@ -109,6 +110,11 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btn_atras.setText("Atras");
+        btn_atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atrasActionPerformed(evt);
+            }
+        });
 
         lbl_idPersona.setText("ID Persona");
 
@@ -234,6 +240,12 @@ public class Inventario extends javax.swing.JFrame {
         bd.insertarProducto(nuevoProducto);
         
     }//GEN-LAST:event_btn_agregarActionPerformed
+
+    private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
+        GUICliente cliente = factory.GUIprincipal(usuario);
+        cliente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_atrasActionPerformed
 
     /**
      * @param args the command line arguments

@@ -15,7 +15,10 @@ import GUI.*;
  * @author roban
  */
 public class Sistema {
-
+    
+    static int id_persona;
+    static String usuario;
+    static String nombre;
     /**
      * @param args the command line arguments
      */

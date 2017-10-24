@@ -16,6 +16,7 @@ import SistemaBD.*;
  */
 public class DirectorioVendedores extends javax.swing.JFrame {
     private static Factory factory;
+    static String usuario;
     /**
      * Creates new form DirectorioVendedores
      */
@@ -124,13 +125,13 @@ public class DirectorioVendedores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
-        GUICliente cliente = factory.GUIprincipal();
+        GUICliente cliente = factory.GUIprincipal(usuario);
         cliente.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_atrasActionPerformed
 
     private void cerrando(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_cerrando
-        GUICliente cliente = factory.GUIprincipal();
+        GUICliente cliente = factory.GUIprincipal(usuario);
         cliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cerrando

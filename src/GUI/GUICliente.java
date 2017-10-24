@@ -4,9 +4,12 @@ import Procesos.*;
 
 public class GUICliente extends javax.swing.JFrame {
     private static Factory factory;
-    public GUICliente() {
+    static String usuario;
+    public GUICliente(String usuarioLog) {
         initComponents();
         factory = new Factory();
+        this.usuario = usuarioLog;
+        this.lbl_usuario.setText("Usuario: "+usuario);
     }
 
     /**
@@ -18,9 +21,10 @@ public class GUICliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btn_inventario = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btn_agenda = new javax.swing.JButton();
+        lbl_usuario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         MenuBar_Principal = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
@@ -31,11 +35,16 @@ public class GUICliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Inventario");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 47, 168, 119));
+        btn_inventario.setText("Inventario");
+        btn_inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_inventarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 168, 119));
 
         jButton2.setText("Plan de compra");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 47, 168, 119));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 168, 119));
 
         btn_agenda.setText("Agenda de vendedores");
         btn_agenda.addActionListener(new java.awt.event.ActionListener() {
@@ -43,7 +52,12 @@ public class GUICliente extends javax.swing.JFrame {
                 btn_agendaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(653, 47, 168, 119));
+        getContentPane().add(btn_agenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 160, 168, 119));
+
+        lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lbl_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_usuario.setText("Usuario: ");
+        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente/fondo4.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1130, 560));
@@ -83,6 +97,13 @@ public class GUICliente extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btn_agendaActionPerformed
 
+    private void btn_inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inventarioActionPerformed
+        Inventario inventGUI = factory.inventarioForm();
+        inventGUI.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btn_inventarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -114,7 +135,7 @@ public class GUICliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUICliente().setVisible(true);
+                new GUICliente(usuario).setVisible(true);
             }
         });
     }
@@ -122,10 +143,11 @@ public class GUICliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar_Principal;
     private javax.swing.JButton btn_agenda;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_inventario;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JLabel lbl_usuario;
     private javax.swing.JMenuItem menuItem_AcercaDe;
     private javax.swing.JMenuItem menuItem_salir;
     private javax.swing.JMenu menu_archivo;

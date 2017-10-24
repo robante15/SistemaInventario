@@ -111,7 +111,7 @@ public class Login extends javax.swing.JFrame {
         boolean aprovada = sesion.obtenerUsuario(Usuario, contrasena);
         
         if (aprovada == true){
-            GUICliente principal = factory.GUIprincipal();
+            GUICliente principal = factory.GUIprincipal(Usuario);
             principal.setVisible(true);
             this.setVisible(false);
         }

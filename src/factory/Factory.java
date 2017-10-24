@@ -50,8 +50,8 @@ public class Factory {
         return new Login();
     }  
     
-    public GUICliente GUIprincipal(){
-        return new GUICliente();
+    public GUICliente GUIprincipal(String usuario){
+        return new GUICliente(usuario);
     } 
     
     public Registro registro(){
@@ -60,6 +60,10 @@ public class Factory {
     
     public DirectorioVendedores directorioVendedores(){
         return new DirectorioVendedores();
+    } 
+    
+    public Inventario inventarioForm(){
+        return new Inventario();
     } 
 
 }
