@@ -32,6 +32,13 @@ public class Factory {
         return new UsuarioBD(usr_name, nombre, contra, num_tel, Direccion, rol);
     }
     
+    public VendedoresBD vendedorBD(String nombre, int num_tel, String Direccion){
+        return new VendedoresBD(nombre,num_tel, Direccion);
+    }
+    
+    public AgendaVendedores agendaVendedores(){
+        return new AgendaVendedores();
+    }
 
 /*----------------------CARGA DE LAS GUI-----------------------------*/
     public Login login(){
@@ -44,6 +51,10 @@ public class Factory {
     
     public Registro registro(){
         return new Registro();
+    } 
+    
+    public DirectorioVendedores directorioVendedores(){
+        return new DirectorioVendedores();
     } 
 
 }

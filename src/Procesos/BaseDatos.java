@@ -100,6 +100,46 @@ public class BaseDatos {
         return aproved;
     }
     
+    public void prueba(){
+        factory = new Factory();
+        BaseDatos base  = factory.baseDatos();
+        System.out.print(base.obtenerVendedores().get(2).getNombre());
+    }
+    
+    
+    public ArrayList<VendedoresBD> obtenerVendedores(){
+        factory = new Factory();
+        ArrayList<VendedoresBD> listaVendedorBD = new ArrayList<VendedoresBD>();
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT * FROM public.usuario WHERE rol='Vendedor'";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                String nombre = rs.getString("nombre");
+                int num_tel = rs.getInt("num_tel");
+                String direccion = rs.getString("direccion");
+ 
+                
+                VendedoresBD vendedorBD = factory.vendedorBD(nombre,num_tel, direccion);
+                listaVendedorBD.add(vendedorBD);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listaVendedorBD;
+    }
+    
     
     /*public ArrayList<UsuarioBD> obtenerUsuario(){
         ArrayList<UsuarioBD> listaUsuarioBD = new ArrayList<UsuarioBD>();
@@ -132,7 +172,13 @@ public class BaseDatos {
             }
         }
         return listaUsuarioBD;
-    }*/
- 
+    }*/ 
+
+    public static void main(String args[]) {
+    factory = new Factory();
+    BaseDatos base  = factory.baseDatos();
+    System.out.print(base.obtenerVendedores().get(2).getNombre());
+    }
+    
     
 }

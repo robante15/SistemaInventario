@@ -4,20 +4,58 @@
  * and open the template in the editor.
  */
 package GUI;
+import factory.Factory;
+import Procesos.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import SistemaBD.*;
 
 /**
  *
  * @author roban
  */
 public class DirectorioVendedores extends javax.swing.JFrame {
-
+    private static Factory factory;
     /**
      * Creates new form DirectorioVendedores
      */
     public DirectorioVendedores() {
         initComponents();
+        initComponents();
+        factory = new Factory();
+        cargarColumnasTabla();
+        cargarModeloTabla();
     }
-
+    
+    DefaultTableModel modeloTabla = new DefaultTableModel();
+    
+    //Este metodo carga el modelo de la tabla de inventarios
+    private void cargarColumnasTabla(){
+        
+        modeloTabla.addColumn("Nombre");
+        modeloTabla.addColumn("Telefono");
+        modeloTabla.addColumn("Direccion");
+    }
+    
+    private void cargarModeloTabla(){
+        BaseDatos base = new BaseDatos();
+        ArrayList<VendedoresBD> listaVendedores = base.obtenerVendedores();
+        int numeroVendedores = listaVendedores.size();
+        modeloTabla.setNumRows(numeroVendedores);
+        
+        for(int i =0;i<numeroVendedores;i++){
+            VendedoresBD vendedores = listaVendedores.get(i);
+            
+            String nombre = vendedores.getNombre();
+            String numTel = String.valueOf(vendedores.getNum_tel());
+            String direccion = vendedores.getDireccion();
+            
+            modeloTabla.setValueAt(nombre, i, 0);
+            modeloTabla.setValueAt(numTel, i, 1);
+            modeloTabla.setValueAt(direccion, i, 2);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,31 +73,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vendedores");
 
-        table_vendedores.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nombre", "Numero de Telefono", "Direccion"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        table_vendedores.setModel(modeloTabla);
         jScrollPane1.setViewportView(table_vendedores);
 
         lbl_buscar.setText("Buscar");
