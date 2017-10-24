@@ -1,0 +1,16 @@
+-Para realizar implementaciones de la Factoria, hay que realizar las respectivas importaciones
+    import factory.Factory;
+    import Procesos.*;
+    import GUI.*;
+
+-En las interfaces graficas los objetos se nombran de la siguiente manera
+    Label - lbl_nombreX
+    Campo de texto - txt_nombreX
+    Botones - btn_nombreX
+    Barra de Menu - MenuBar_nombreX
+    Menu - menu_nombreX
+    Menu Item - menuItem_nombreX
+    Radio Buttom - rbtn_nombreX
+
+-El ingreso de la contraseña en el campo de texto esta retornando un String, cosa que no es correcta segun JAVA
+ por motivos de seguridad y todo eso... Pero va
