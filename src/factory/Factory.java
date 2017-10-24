@@ -36,6 +36,11 @@ public class Factory {
         return new VendedoresBD(nombre,num_tel, Direccion);
     }
     
+    public ProductosInventBD productosInventBD(int id_item, int id_persona, String Producto, String descripcion, Double cantidad, String fechaVenc, String unidad){
+        return new ProductosInventBD(id_item, id_persona, Producto, descripcion, cantidad, fechaVenc, unidad);
+    }
+    
+    
     public AgendaVendedores agendaVendedores(){
         return new AgendaVendedores();
     }

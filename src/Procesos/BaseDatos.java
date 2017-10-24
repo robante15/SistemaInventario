@@ -64,6 +64,33 @@ public class BaseDatos {
             }
         }
     }
+    
+    public void insertarProducto(ProductosInventBD producto){
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "INSERT INTO public.inventario (id_persona, producto, descripcion, cantidad, fecha_vencimiento, unidad) VALUES (?, ?, ?, ?, ?, ?)";
+            st = conn.prepareStatement(SQLQuery);
+            
+            //El setString sirve para saber que tipo de valor le va a pasar; el # sirve para saber de que posicion es, y lo otro es el valor que le va a pasar
+            st.setInt(1, producto.getId_persona());
+            st.setString(2, producto.getProducto());
+            st.setString(3, producto.getDescripcion());
+            st.setDouble(4, producto.getCantidad());
+            st.setString(5, producto.getFechaVenc());
+            st.setString(6, producto.getUnidad());
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Nuevo producto agregado correctamente");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 
     /*-----------------------------------Metodos de Obtencion-----------------------------------*/
     
@@ -138,6 +165,43 @@ public class BaseDatos {
             }
         }
         return listaVendedorBD;
+    }
+    
+    
+    public ArrayList<ProductosInventBD> obtenerInventario(){
+        factory = new Factory();
+        ArrayList<ProductosInventBD> listaInventarioBD = new ArrayList<ProductosInventBD>();
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT * FROM public.inventario WHERE id_persona=1";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                int id_item = rs.getInt("id_item");
+                int id_persona = rs.getInt("id_persona");
+                String Producto = rs.getString("producto");
+                String descripcion = rs.getString("descripcion");
+                Double cantidad  = rs.getDouble("cantidad");
+                String fechaVenc = rs.getString("fecha_vencimiento");
+                String unidad = rs.getString("unidad");
+
+                ProductosInventBD inventarioBD = factory.productosInventBD(id_item,id_persona, Producto, descripcion, cantidad, fechaVenc, unidad);
+                listaInventarioBD.add(inventarioBD);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listaInventarioBD;
     }
     
     

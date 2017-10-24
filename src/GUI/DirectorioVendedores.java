@@ -21,7 +21,6 @@ public class DirectorioVendedores extends javax.swing.JFrame {
      */
     public DirectorioVendedores() {
         initComponents();
-        initComponents();
         factory = new Factory();
         cargarColumnasTabla();
         cargarModeloTabla();
@@ -69,14 +68,27 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         table_vendedores = new javax.swing.JTable();
         lbl_buscar = new javax.swing.JLabel();
         txt_buscar = new javax.swing.JTextField();
+        btn_atras = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vendedores");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                cerrando(evt);
+            }
+        });
 
         table_vendedores.setModel(modeloTabla);
         jScrollPane1.setViewportView(table_vendedores);
 
         lbl_buscar.setText("Buscar");
+
+        btn_atras.setText("Regresar");
+        btn_atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atrasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,8 +98,12 @@ public class DirectorioVendedores extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_buscar)
-                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1019, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_atras))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1019, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -95,8 +111,10 @@ public class DirectorioVendedores extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_buscar)
-                .addGap(15, 15, 15)
-                .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_atras))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
@@ -105,6 +123,18 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
+        GUICliente cliente = factory.GUIprincipal();
+        cliente.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_atrasActionPerformed
+
+    private void cerrando(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_cerrando
+        GUICliente cliente = factory.GUIprincipal();
+        cliente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cerrando
+   
     /**
      * @param args the command line arguments
      */
@@ -141,6 +171,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_atras;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_buscar;
     private javax.swing.JTable table_vendedores;
