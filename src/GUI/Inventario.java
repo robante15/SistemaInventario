@@ -20,8 +20,9 @@ public class Inventario extends javax.swing.JFrame {
     /**
      * Creates new form Inventario
      */
-    public Inventario() {
+    public Inventario(String usuario) {
         factory = new Factory();
+        this.usuario = usuario;
         initComponents();
         cargarColumnasTabla();
         cargarModeloTabla();
@@ -92,7 +93,7 @@ public class Inventario extends javax.swing.JFrame {
 
         lbl_inventario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaInventario = new javax.swing.JTable();
         txt_idPersona = new javax.swing.JTextField();
         txt_producto = new javax.swing.JTextField();
         btn_agregar = new javax.swing.JButton();
@@ -114,8 +115,8 @@ public class Inventario extends javax.swing.JFrame {
 
         lbl_inventario.setText("Inventarios:");
 
-        jTable1.setModel(modeloTabla);
-        jScrollPane1.setViewportView(jTable1);
+        tablaInventario.setModel(modeloTabla);
+        jScrollPane1.setViewportView(tablaInventario);
 
         btn_agregar.setText("Agregar");
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -254,6 +255,7 @@ public class Inventario extends javax.swing.JFrame {
         GUICliente cliente = factory.GUIprincipal(usuario);
         cliente.setVisible(true);
         this.dispose();
+        System.out.print(usuario);
     }//GEN-LAST:event_btn_atrasActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
@@ -290,7 +292,7 @@ public class Inventario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inventario().setVisible(true);
+                new Inventario(usuario).setVisible(true);
             }
         });
     }
@@ -301,13 +303,13 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JButton btn_atras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_cantidad;
     private javax.swing.JLabel lbl_descripcion;
     private javax.swing.JLabel lbl_idPersona;
     private javax.swing.JLabel lbl_inventario;
     private javax.swing.JLabel lbl_producto;
     private javax.swing.JLabel lbl_unidades;
+    private javax.swing.JTable tablaInventario;
     private javax.swing.JTextField txt_cantidad;
     private javax.swing.JTextField txt_descripcion;
     private javax.swing.JTextField txt_fechaVto;
