@@ -64,6 +64,10 @@ public class Factory {
     
     public Inventario inventarioForm(String usuario){
         return new Inventario(usuario);
+    }
+    
+    public GUIVendedor GUIvendedor(String usuario){
+        return new GUIVendedor(usuario);
     } 
 
 }

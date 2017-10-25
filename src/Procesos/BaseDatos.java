@@ -131,6 +131,32 @@ public class BaseDatos {
         return aproved;
     }
     
+    public String obtenerRol(String usuario){
+        String rol = "";
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT rol FROM public.usuario WHERE usr_name='"+usuario+"'";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+            rol = rs.getString("rol");
+            System.out.print(rol);            
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return rol;
+    }
+    
     public void prueba(){
         factory = new Factory();
         BaseDatos base  = factory.baseDatos();
