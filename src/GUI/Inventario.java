@@ -121,17 +121,17 @@ public class Inventario extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_inventario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lbl_inventario.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         lbl_inventario.setForeground(new java.awt.Color(240, 240, 240));
         lbl_inventario.setText("Inventarios:");
-        getContentPane().add(lbl_inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, -1));
+        getContentPane().add(lbl_inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, -1, -1));
 
         tablaInventario.setModel(modeloTabla);
         jScrollPane1.setViewportView(tablaInventario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 933, 254));
-        getContentPane().add(txt_idPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 51, 379, -1));
-        getContentPane().add(txt_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 89, 379, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 1020, 320));
+        getContentPane().add(txt_idPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 379, -1));
+        getContentPane().add(txt_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 379, -1));
 
         btn_agregar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btn_agregar.setText("Agregar");
@@ -140,7 +140,7 @@ public class Inventario extends javax.swing.JFrame {
                 btn_agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(835, 214, 120, 50));
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 330, 140, 50));
 
         btn_atras.setText("Atras");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -150,33 +150,33 @@ public class Inventario extends javax.swing.JFrame {
         });
         getContentPane().add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1081, 11, -1, -1));
 
-        lbl_idPersona.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lbl_idPersona.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_idPersona.setForeground(new java.awt.Color(240, 240, 240));
         lbl_idPersona.setText("ID Persona");
-        getContentPane().add(lbl_idPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, -1, -1));
+        getContentPane().add(lbl_idPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
 
-        lbl_producto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lbl_producto.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_producto.setForeground(new java.awt.Color(240, 240, 240));
         lbl_producto.setText("Producto");
-        getContentPane().add(lbl_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, -1, -1));
+        getContentPane().add(lbl_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
 
-        lbl_descripcion.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lbl_descripcion.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_descripcion.setForeground(new java.awt.Color(240, 240, 240));
         lbl_descripcion.setText("Descripcion");
-        getContentPane().add(lbl_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 123, -1, -1));
-        getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 120, 461, -1));
+        getContentPane().add(lbl_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
+        getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 461, -1));
 
-        lbl_cantidad.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lbl_cantidad.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_cantidad.setForeground(new java.awt.Color(240, 240, 240));
         lbl_cantidad.setText("Cantidad");
-        getContentPane().add(lbl_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 154, -1, -1));
-        getContentPane().add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(748, 151, 96, -1));
+        getContentPane().add(lbl_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
+        getContentPane().add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 96, -1));
 
-        lbl_unidades.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lbl_unidades.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_unidades.setForeground(new java.awt.Color(240, 240, 240));
         lbl_unidades.setText("Unidades");
-        getContentPane().add(lbl_unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 154, -1, -1));
-        getContentPane().add(txt_unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(924, 151, 152, -1));
+        getContentPane().add(lbl_unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 260, -1, -1));
+        getContentPane().add(txt_unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 260, 152, -1));
 
         btn_actualizar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btn_actualizar.setText("Actualizar");
@@ -185,13 +185,13 @@ public class Inventario extends javax.swing.JFrame {
                 btn_actualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 214, 140, 50));
+        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 140, 50));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/inventario/photo_2017-10-24_18-59-22 (1).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 260, 250));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/inventario/closed_box 4x4.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, -30, 550, 460));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/inventario/fondo4.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 560));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 750));
         getContentPane().add(txt_fechaVto, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 182, 379, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
