@@ -95,13 +95,13 @@ public class GUICliente extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem_salirActionPerformed
 
     private void btn_agendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agendaActionPerformed
-        DirectorioVendedores agenda = factory.directorioVendedores();
+        DirectorioVendedores agenda = factory.directorioVendedores(usuario);
         agenda.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_agendaActionPerformed
 
     private void btn_inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inventarioActionPerformed
-        Inventario inventGUI = factory.inventarioForm();
+        Inventario inventGUI = factory.inventarioForm(usuario);
         inventGUI.setVisible(true);
         this.setVisible(false);
         

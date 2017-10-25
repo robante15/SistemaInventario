@@ -20,8 +20,9 @@ public class DirectorioVendedores extends javax.swing.JFrame {
     /**
      * Creates new form DirectorioVendedores
      */
-    public DirectorioVendedores() {
+    public DirectorioVendedores(String usuario) {
         initComponents();
+        this.usuario = usuario;
         factory = new Factory();
         cargarColumnasTabla();
         cargarModeloTabla();
@@ -149,7 +150,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DirectorioVendedores().setVisible(true);
+                new DirectorioVendedores(usuario).setVisible(true);
             }
         });
     }

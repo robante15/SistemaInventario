@@ -58,12 +58,12 @@ public class Factory {
         return new Registro();
     } 
     
-    public DirectorioVendedores directorioVendedores(){
-        return new DirectorioVendedores();
+    public DirectorioVendedores directorioVendedores(String usuario){
+        return new DirectorioVendedores(usuario);
     } 
     
-    public Inventario inventarioForm(){
-        return new Inventario();
+    public Inventario inventarioForm(String usuario){
+        return new Inventario(usuario);
     } 
 
 }
