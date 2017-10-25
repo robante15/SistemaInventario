@@ -234,6 +234,43 @@ public class BaseDatos {
         return listaInventarioBD;
     }
     
+    public ArrayList<ProductosVenta> obtenerProductos(int id_personal){
+        factory = new Factory();
+        ArrayList<ProductosVenta> listaProductosVenta = new ArrayList<ProductosVenta>();
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT * FROM public.productos WHERE id_persona="+id_personal+"";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                int id_producto = rs.getInt("id_producto");
+                int id_persona = rs.getInt("id_persona");
+                String producto = rs.getString("producto");
+                Double precio = rs.getDouble("precio");
+                Double cantidad  = rs.getDouble("cantidad");
+                String unidad = rs.getString("unidad");
+                String Descripcion = rs.getString("descripcion");
+                
+
+                ProductosVenta productosBD = factory.productosVenta(id_producto, id_persona, producto, precio, cantidad, unidad, Descripcion);
+                listaProductosVenta.add(productosBD);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listaProductosVenta;
+    }
+    
     
     /*public ArrayList<UsuarioBD> obtenerUsuario(){
         ArrayList<UsuarioBD> listaUsuarioBD = new ArrayList<UsuarioBD>();

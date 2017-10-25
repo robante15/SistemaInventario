@@ -40,6 +40,9 @@ public class Factory {
         return new ProductosInventBD(id_item, id_persona, Producto, descripcion, cantidad, fechaVenc, unidad);
     }
     
+    public ProductosVenta productosVenta(int id_producto, int id_persona, String producto, Double precio, Double cantidad, String unidad, String Descripcion){
+        return new ProductosVenta(id_producto, id_persona, producto, precio, cantidad, unidad, Descripcion);
+    }
     
     public AgendaVendedores agendaVendedores(){
         return new AgendaVendedores();
@@ -68,6 +71,10 @@ public class Factory {
     
     public GUIVendedor GUIvendedor(String usuario){
         return new GUIVendedor(usuario);
+    } 
+    
+    public ProductosVendedor productosVendedor(String usuario){
+        return new ProductosVendedor(usuario);
     } 
 
 }
