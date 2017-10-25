@@ -70,6 +70,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         lbl_buscar = new javax.swing.JLabel();
         txt_buscar = new javax.swing.JTextField();
         btn_atras = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vendedores");
@@ -78,48 +79,30 @@ public class DirectorioVendedores extends javax.swing.JFrame {
                 cerrando(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         table_vendedores.setModel(modeloTabla);
         jScrollPane1.setViewportView(table_vendedores);
 
-        lbl_buscar.setText("Buscar");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 1020, 240));
 
+        lbl_buscar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lbl_buscar.setForeground(new java.awt.Color(240, 240, 240));
+        lbl_buscar.setText("Buscar");
+        getContentPane().add(lbl_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 215, -1));
+
+        btn_atras.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         btn_atras.setText("Regresar");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_atrasActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 46, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_buscar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_atras))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1019, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_buscar)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_atras))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/directorios/fobdo5.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -173,6 +156,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atras;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_buscar;
     private javax.swing.JTable table_vendedores;
