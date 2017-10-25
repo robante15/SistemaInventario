@@ -112,8 +112,13 @@ public class Inventario extends javax.swing.JFrame {
         txt_fechaVto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Inventario");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                cerrando(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_inventario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -202,8 +207,6 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
-        GUICliente cliente = factory.GUIprincipal(usuario);
-        cliente.setVisible(true);
         this.dispose();
         System.out.print(usuario);
     }//GEN-LAST:event_btn_atrasActionPerformed
@@ -211,6 +214,12 @@ public class Inventario extends javax.swing.JFrame {
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
        this.rellenarTabla();
     }//GEN-LAST:event_btn_actualizarActionPerformed
+
+    private void cerrando(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_cerrando
+        GUICliente cliente = factory.GUIprincipal(usuario);
+        cliente.setVisible(true);
+        this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_cerrando
 
     /**
      * @param args the command line arguments

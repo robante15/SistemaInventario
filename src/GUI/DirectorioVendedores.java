@@ -109,8 +109,8 @@ public class DirectorioVendedores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
-        GUICliente cliente = factory.GUIprincipal(usuario);
-        cliente.setVisible(true);
+        //GUICliente cliente = factory.GUIprincipal(usuario);
+        //cliente.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_atrasActionPerformed
 

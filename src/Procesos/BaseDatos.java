@@ -24,9 +24,13 @@ public class BaseDatos {
     
 
     
-    String url = "jdbc:postgresql://tantor.db.elephantsql.com:5432/todltynj";
-    String username = "todltynj";
-    String password = "qMtuu1p3JNYfL2hxbqKojmbL34z2Eq-z";
+    //String url = "jdbc:postgresql://tantor.db.elephantsql.com:5432/todltynj";
+    //String username = "todltynj";
+    //String password = "qMtuu1p3JNYfL2hxbqKojmbL34z2Eq-z";
+    
+    String url = "jdbc:postgresql://dbsistemainventario.cggurv4urvfd.us-east-2.rds.amazonaws.com:5432/dbsistemainventario";
+    String username = "robante15";
+    String password = "ROBert123";
     
     public BaseDatos(){
         try {
