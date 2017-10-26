@@ -81,6 +81,8 @@ public class Perfil extends javax.swing.JFrame {
         lbl_contrasena = new javax.swing.JLabel();
         txt_contra = new javax.swing.JTextField();
         lbl_direccion = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Perfil de Usuario");
@@ -89,45 +91,76 @@ public class Perfil extends javax.swing.JFrame {
                 cerrando(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbl_IDPersona.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_IDPersona.setForeground(new java.awt.Color(240, 240, 240));
         lbl_IDPersona.setText("ID Persona:");
+        getContentPane().add(lbl_IDPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 58, -1, -1));
 
+        lbl_userName.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_userName.setForeground(new java.awt.Color(240, 240, 240));
         lbl_userName.setText("Usuario: ");
+        getContentPane().add(lbl_userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 90, -1, -1));
 
+        lbl_nombre.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_nombre.setForeground(new java.awt.Color(240, 240, 240));
         lbl_nombre.setText("Nombre:");
+        getContentPane().add(lbl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 122, -1, -1));
 
+        lbl_contra.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_contra.setForeground(new java.awt.Color(240, 240, 240));
         lbl_contra.setText("Contraseña: ");
+        getContentPane().add(lbl_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 154, -1, -1));
 
+        lbl_numTel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_numTel.setForeground(new java.awt.Color(240, 240, 240));
         lbl_numTel.setText("Numero de Telefono:");
+        getContentPane().add(lbl_numTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 186, -1, -1));
 
+        lbl_rol.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_rol.setForeground(new java.awt.Color(240, 240, 240));
         lbl_rol.setText("Rol: ");
+        getContentPane().add(lbl_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 250, -1, -1));
 
+        lbl_titulo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lbl_titulo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_titulo.setText("Perfil de Usuario");
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
+        btn_Actualizar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_Actualizar.setText("Actualizar datos");
         btn_Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ActualizarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, -1, -1));
 
+        btn_cancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Actualizar datos"));
 
+        lbl_contra1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_contra1.setText("Numero Telefono: ");
 
+        lbl_numTel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_numTel1.setText("Direccion: ");
 
+        lbl_userName1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_userName1.setText("Usuario: ");
 
+        lbl_nombre1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_nombre1.setText("Nombre:");
 
+        lbl_contrasena.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_contrasena.setText("Contraseña:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -138,25 +171,23 @@ public class Perfil extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_nombre1)
-                        .addGap(74, 74, 74)
-                        .addComponent(txt_nombre))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_contra1)
                         .addGap(26, 26, 26)
-                        .addComponent(txt_numTel))
+                        .addComponent(txt_numTel, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_numTel1)
-                        .addGap(65, 65, 65)
-                        .addComponent(txt_direccion))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_userName1)
-                            .addComponent(lbl_contrasena))
-                        .addGap(55, 55, 55)
+                            .addComponent(lbl_contrasena)
+                            .addComponent(lbl_nombre1))
+                        .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
-                            .addComponent(txt_contra))))
+                            .addComponent(txt_nombre)
+                            .addComponent(txt_contra)
+                            .addComponent(txt_usuario))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -185,64 +216,18 @@ public class Perfil extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lbl_direccion.setText("Direccion:");
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 282, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Actualizar)
-                .addGap(49, 49, 49)
-                .addComponent(btn_cancelar)
-                .addGap(20, 20, 20))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_contra)
-                            .addComponent(lbl_nombre)
-                            .addComponent(lbl_userName)
-                            .addComponent(lbl_IDPersona)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbl_rol, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_numTel)
-                                .addComponent(lbl_direccion, javax.swing.GroupLayout.Alignment.LEADING))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(lbl_titulo)))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(lbl_titulo)
-                .addGap(9, 9, 9)
-                .addComponent(lbl_IDPersona)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_userName)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_nombre)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_contra)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_numTel)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_direccion)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_rol)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Actualizar)
-                    .addComponent(btn_cancelar))
-                .addContainerGap())
-        );
+        lbl_direccion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_direccion.setForeground(new java.awt.Color(240, 240, 240));
+        lbl_direccion.setText("Direccion:");
+        getContentPane().add(lbl_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 218, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/perfil/14853.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, -100, 510, 420));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/perfil/111.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -314,6 +299,8 @@ public class Perfil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Actualizar;
     private javax.swing.JButton btn_cancelar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_IDPersona;
     private javax.swing.JLabel lbl_contra;

@@ -27,6 +27,7 @@ public class GUICliente extends javax.swing.JFrame {
         btn_agenda = new javax.swing.JButton();
         lbl_usuario = new javax.swing.JLabel();
         btn_perfil = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         lbl_fondo = new javax.swing.JLabel();
         MenuBar_Principal = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
@@ -49,7 +50,7 @@ public class GUICliente extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jButton2.setText("Plan de compra");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 168, 119));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 168, 119));
 
         btn_agenda.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btn_agenda.setText("Agenda de vendedores");
@@ -65,6 +66,7 @@ public class GUICliente extends javax.swing.JFrame {
         lbl_usuario.setText("Usuario: ");
         getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
 
+        btn_perfil.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btn_perfil.setText("Perfil");
         btn_perfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +74,9 @@ public class GUICliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 110, 80));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente/rererer.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
 
         lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente/fondo5.jpg"))); // NOI18N
         getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
@@ -166,6 +171,7 @@ public class GUICliente extends javax.swing.JFrame {
     private javax.swing.JButton btn_inventario;
     private javax.swing.JButton btn_perfil;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JLabel lbl_fondo;
     private javax.swing.JLabel lbl_usuario;
