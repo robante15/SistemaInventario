@@ -42,7 +42,7 @@ public class Inventario extends javax.swing.JFrame {
         
         ProductosInventBD nuevoProducto = factory.productosInventBD(id_item,id_persona, Producto, descripcion, cantidad, fechaVenc, unidad);
         BaseDatos bd = factory.baseDatos();
-        bd.insertarProducto(nuevoProducto);
+        bd.insertarProductoInventario(nuevoProducto);
     }
     
     

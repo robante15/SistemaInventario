@@ -69,7 +69,9 @@ public class BaseDatos {
         }
     }
     
-    public void insertarProducto(ProductosInventBD producto){
+    
+    
+    public void insertarProductoInventario(ProductosInventBD producto){
         try {
             conn = DriverManager.getConnection(url, username, password);
             String SQLQuery = "INSERT INTO public.inventario (id_persona, producto, descripcion, cantidad, fecha_vencimiento, unidad) VALUES (?, ?, ?, ?, ?, ?)";
@@ -82,6 +84,33 @@ public class BaseDatos {
             st.setDouble(4, producto.getCantidad());
             st.setString(5, producto.getFechaVenc());
             st.setString(6, producto.getUnidad());
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Nuevo producto agregado correctamente");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    
+    public void insertarProductoVendedor(ProductosVenta producto){
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "INSERT INTO public.productos (id_persona, producto, precio, cantidad, unidad, descripcion) VALUES (?, ?, ?, ?, ?, ?)";
+            st = conn.prepareStatement(SQLQuery);
+            
+            //El setString sirve para saber que tipo de valor le va a pasar; el # sirve para saber de que posicion es, y lo otro es el valor que le va a pasar
+            st.setInt(1, producto.getId_persona());
+            st.setString(2, producto.getProducto());
+            st.setDouble(3, producto.getPrecio());
+            st.setDouble(4, producto.getCantidad());
+            st.setString(5, producto.getUnidad());
+            st.setString(6, producto.getDescripcion());
             st.executeUpdate();
             JOptionPane.showMessageDialog(null, "Nuevo producto agregado correctamente");
         } catch (SQLException ex) {
@@ -155,6 +184,32 @@ public class BaseDatos {
             }
         }
         return rol;
+    }
+    
+    public int obtenerID(String usuario){
+        int id_usuario = 0;
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT id_persona FROM public.usuario WHERE usr_name='"+usuario+"'";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+            id_usuario = rs.getInt("id_persona");
+            System.out.print(id_usuario);            
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return id_usuario;
     }
     
     public void prueba(){

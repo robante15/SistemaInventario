@@ -17,6 +17,8 @@ import SistemaBD.*;
 public class ProductosVendedor extends javax.swing.JFrame {
     private static Factory factory;
     static String usuario;
+    
+    
     /**
      * Creates new form ProductosVendedor
      */
@@ -25,7 +27,7 @@ public class ProductosVendedor extends javax.swing.JFrame {
         this.usuario = usuario;
         initComponents();
         cargarColumnasTabla();
-        cargarModeloTabla(1);
+        cargarModeloTabla(usuario);
         this.lbl_usuario.setText("Usuario: "+usuario);
     }
     DefaultTableModel modeloTabla = new DefaultTableModel();
@@ -41,9 +43,23 @@ public class ProductosVendedor extends javax.swing.JFrame {
         
     }
 
-    private void cargarModeloTabla(int id_personal){
-        BaseDatos base = new BaseDatos();
-        ArrayList<ProductosVenta> listaInventario = base.obtenerProductos(3);
+    private void insertarProductoVendedor(int ID_persona){
+        BaseDatos base = factory.baseDatos();
+        int id_item = 0;
+        int id_persona = ID_persona;
+        String Producto = this.txt_producto.getText();
+        String descripcion = this.txt_descripcion.getText();
+        Double cantidad = Double.parseDouble(this.txt_cantidad.getText());
+        Double precio = Double.parseDouble(this.txt_precio.getText());
+        String unidad = this.txt_unidad.getText();
+        
+        ProductosVenta nuevoProductoVendedor = factory.productosVenta(id_item,id_persona, Producto,precio , cantidad, unidad, descripcion);
+        base.insertarProductoVendedor(nuevoProductoVendedor);
+    }
+    
+    private void cargarModeloTabla(String usuario){
+        BaseDatos base = factory.baseDatos();
+        ArrayList<ProductosVenta> listaInventario = base.obtenerProductos(base.obtenerID(usuario));
         int numeroVendedores = listaInventario.size();
         modeloTabla.setNumRows(numeroVendedores);
         
@@ -81,8 +97,21 @@ public class ProductosVendedor extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btn_atras = new javax.swing.JButton();
         lbl_usuario = new javax.swing.JLabel();
+        txt_producto = new javax.swing.JTextField();
+        txt_precio = new javax.swing.JTextField();
+        txt_cantidad = new javax.swing.JTextField();
+        txt_unidad = new javax.swing.JTextField();
+        txt_descripcion = new javax.swing.JTextField();
+        lbl_producto = new javax.swing.JLabel();
+        lbl_precio = new javax.swing.JLabel();
+        lbl_cantidad = new javax.swing.JLabel();
+        lbl_descripcion = new javax.swing.JLabel();
+        lbl_unidad = new javax.swing.JLabel();
+        btn_agregar = new javax.swing.JButton();
+        lbl_insertar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Productos - Vendedor");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 cerrando(evt);
@@ -101,17 +130,66 @@ public class ProductosVendedor extends javax.swing.JFrame {
 
         lbl_usuario.setText("Usuario:");
 
+        lbl_producto.setText("Producto:");
+
+        lbl_precio.setText("Precio:");
+
+        lbl_cantidad.setText("Cantidad:");
+
+        lbl_descripcion.setText("Descripcion:");
+
+        lbl_unidad.setText("Unidades:");
+
+        btn_agregar.setText("Agregar");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
+
+        lbl_insertar.setText("Insertar nuevo producto");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbl_usuario)
-                        .addComponent(btn_atras)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(28, 28, 28)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(215, 215, 215)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbl_producto)
+                                .addComponent(lbl_precio)
+                                .addComponent(lbl_cantidad)
+                                .addComponent(lbl_descripcion))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(23, 23, 23)
+                                    .addComponent(lbl_insertar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbl_usuario)
+                                        .addComponent(btn_atras)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(lbl_unidad)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txt_unidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txt_producto)
+                                        .addComponent(txt_precio)
+                                        .addComponent(txt_descripcion))
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(322, 322, 322)
+                        .addComponent(btn_agregar)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,8 +198,30 @@ public class ProductosVendedor extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(lbl_usuario)
                 .addGap(18, 18, 18)
-                .addComponent(btn_atras)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_atras)
+                    .addComponent(lbl_insertar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_producto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_precio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_unidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_cantidad)
+                    .addComponent(lbl_unidad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_descripcion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_agregar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -138,6 +238,11 @@ public class ProductosVendedor extends javax.swing.JFrame {
         vendedor.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_cerrando
+
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        BaseDatos base = factory.baseDatos();
+        this.insertarProductoVendedor(base.obtenerID(usuario));
+    }//GEN-LAST:event_btn_agregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,9 +280,21 @@ public class ProductosVendedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_atras;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lbl_cantidad;
+    private javax.swing.JLabel lbl_descripcion;
+    private javax.swing.JLabel lbl_insertar;
+    private javax.swing.JLabel lbl_precio;
+    private javax.swing.JLabel lbl_producto;
+    private javax.swing.JLabel lbl_unidad;
     private javax.swing.JLabel lbl_usuario;
+    private javax.swing.JTextField txt_cantidad;
+    private javax.swing.JTextField txt_descripcion;
+    private javax.swing.JTextField txt_precio;
+    private javax.swing.JTextField txt_producto;
+    private javax.swing.JTextField txt_unidad;
     // End of variables declaration//GEN-END:variables
 }
