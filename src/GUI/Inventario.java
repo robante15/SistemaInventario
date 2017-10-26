@@ -36,19 +36,27 @@ public class Inventario extends javax.swing.JFrame {
     
     DefaultTableModel modeloTabla = new DefaultTableModel();
     
+    private void blanquearCampos(){
+        this.txt_producto.setText("");
+        this.txt_descripcion.setText("");
+        this.txt_cantidad.setText("");
+        this.txt_fechaVto.setText("");
+        this.txt_unidades.setText("");
+    }
+    
     //Este metodo carga el modelo de la tabla de inventarios
-    private void rellenarTabla(){
+    private void insertarEnInventario(){
+        BaseDatos bd = factory.baseDatos();
         int id_item = 0;
-        int id_persona = Integer.parseInt(this.txt_idProducto.getText());
         String Producto = this.txt_producto.getText();
         String descripcion = this.txt_descripcion.getText();
         Double cantidad = Double.parseDouble(this.txt_cantidad.getText());
         String fechaVenc = this.txt_fechaVto.getText();
         String unidad = this.txt_unidades.getText();
         
-        ProductosInventBD nuevoProducto = factory.productosInventBD(id_item,id_persona, Producto, descripcion, cantidad, fechaVenc, unidad);
-        BaseDatos bd = factory.baseDatos();
+        ProductosInventBD nuevoProducto = factory.productosInventBD(id_item,id_persona, Producto, descripcion, cantidad, fechaVenc, unidad);     
         bd.insertarProductoInventario(nuevoProducto);
+        this.blanquearCampos();
     }
     
     
@@ -217,7 +225,8 @@ public class Inventario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
-        //this.cargarModeloTabla();
+        this.insertarEnInventario();
+        cargarModeloTabla();
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
@@ -234,6 +243,8 @@ public class Inventario extends javax.swing.JFrame {
                 this.txt_fechaVto.getText(), this.txt_unidades.getText());
         
         base.actualizarInventario(productoActualizado);
+        cargarModeloTabla();
+        this.blanquearCampos();
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     private void cerrando(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_cerrando
