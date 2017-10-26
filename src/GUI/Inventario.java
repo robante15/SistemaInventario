@@ -24,6 +24,7 @@ public class Inventario extends javax.swing.JFrame {
         factory = new Factory();
         this.usuario = usuario;
         initComponents();
+        this.setLocationRelativeTo(null);
         cargarColumnasTabla();
         cargarModeloTabla();
     }

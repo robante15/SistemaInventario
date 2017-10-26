@@ -26,6 +26,7 @@ public class ProductosVendedor extends javax.swing.JFrame {
         factory = new Factory();
         this.usuario = usuario;
         initComponents();
+        this.setLocationRelativeTo(null);
         cargarColumnasTabla();
         cargarModeloTabla(usuario);
         this.lbl_usuario.setText("Usuario: "+usuario);

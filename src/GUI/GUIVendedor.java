@@ -21,6 +21,7 @@ public class GUIVendedor extends javax.swing.JFrame {
      */
     public GUIVendedor(String usuario) {
         initComponents();
+        this.setLocationRelativeTo(null);
         factory = new Factory();
         this.usuario = usuario;
         this.lbl_usuario.setText("Usuario: "+usuario);

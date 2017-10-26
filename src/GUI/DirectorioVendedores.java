@@ -22,6 +22,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
      */
     public DirectorioVendedores(String usuario) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.usuario = usuario;
         factory = new Factory();
         cargarColumnasTabla();

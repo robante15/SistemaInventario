@@ -7,6 +7,7 @@ public class GUICliente extends javax.swing.JFrame {
     static String usuario;
     public GUICliente(String usuarioLog) {
         initComponents();
+        this.setLocationRelativeTo(null);
         factory = new Factory();
         this.usuario = usuarioLog;
         this.lbl_usuario.setText("Usuario: "+usuario);
