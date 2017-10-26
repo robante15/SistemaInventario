@@ -109,6 +109,8 @@ public class ProductosVendedor extends javax.swing.JFrame {
         lbl_unidad = new javax.swing.JLabel();
         btn_agregar = new javax.swing.JButton();
         lbl_insertar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Productos - Vendedor");
@@ -117,114 +119,74 @@ public class ProductosVendedor extends javax.swing.JFrame {
                 cerrando(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(modeloTabla);
         jScrollPane1.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 260, 1126, 299));
+
+        btn_atras.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_atras.setText("Atras");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_atrasActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 20, 90, 20));
 
         lbl_usuario.setText("Usuario:");
+        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1095, 26, -1, -1));
+        getContentPane().add(txt_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 200, 20));
+        getContentPane().add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 200, 20));
+        getContentPane().add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 50, 20));
+        getContentPane().add(txt_unidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 110, 20));
+        getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 200, 20));
 
+        lbl_producto.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_producto.setForeground(new java.awt.Color(240, 240, 240));
         lbl_producto.setText("Producto:");
+        getContentPane().add(lbl_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
 
+        lbl_precio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_precio.setForeground(new java.awt.Color(240, 240, 240));
         lbl_precio.setText("Precio:");
+        getContentPane().add(lbl_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
 
+        lbl_cantidad.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_cantidad.setForeground(new java.awt.Color(240, 240, 240));
         lbl_cantidad.setText("Cantidad:");
+        getContentPane().add(lbl_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
+        lbl_descripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_descripcion.setForeground(new java.awt.Color(240, 240, 240));
         lbl_descripcion.setText("Descripcion:");
+        getContentPane().add(lbl_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
 
+        lbl_unidad.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_unidad.setForeground(new java.awt.Color(240, 240, 240));
         lbl_unidad.setText("Unidades:");
+        getContentPane().add(lbl_unidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, -1, -1));
 
+        btn_agregar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_agregar.setText("Agregar");
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_agregarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, -1));
 
+        lbl_insertar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_insertar.setForeground(new java.awt.Color(240, 240, 240));
         lbl_insertar.setText("Insertar nuevo producto");
+        getContentPane().add(lbl_insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(28, 28, 28)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(215, 215, 215)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbl_producto)
-                                .addComponent(lbl_precio)
-                                .addComponent(lbl_cantidad)
-                                .addComponent(lbl_descripcion))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(23, 23, 23)
-                                    .addComponent(lbl_insertar)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbl_usuario)
-                                        .addComponent(btn_atras)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(lbl_unidad)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txt_unidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(txt_producto)
-                                        .addComponent(txt_precio)
-                                        .addComponent(txt_descripcion))
-                                    .addGap(0, 0, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(322, 322, 322)
-                        .addComponent(btn_agregar)))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lbl_usuario)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_atras)
-                    .addComponent(lbl_insertar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_producto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_precio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_unidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_cantidad)
-                    .addComponent(lbl_unidad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_descripcion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_agregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/provendedor/productapplication_producto_3010.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, -120, 620, 500));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/provendedor/fondo8_1.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,6 +244,8 @@ public class ProductosVendedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_atras;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_cantidad;
