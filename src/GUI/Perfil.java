@@ -23,6 +23,7 @@ public class Perfil extends javax.swing.JFrame {
      */
     public Perfil(String usuario) {
         initComponents();
+        this.setLocationRelativeTo(null);
         factory = new Factory();
         this.usuario = usuario;
         this.rellenarCampos();
@@ -73,7 +74,10 @@ public class Perfil extends javax.swing.JFrame {
         lbl_contrasena = new javax.swing.JLabel();
         txt_contra = new javax.swing.JTextField();
         lbl_direccion = new javax.swing.JLabel();
+<<<<<<< HEAD
+=======
         jLabel2 = new javax.swing.JLabel();
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -88,35 +92,66 @@ public class Perfil extends javax.swing.JFrame {
         lbl_IDPersona.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_IDPersona.setForeground(new java.awt.Color(240, 240, 240));
         lbl_IDPersona.setText("ID Persona:");
+<<<<<<< HEAD
+        getContentPane().add(lbl_IDPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 63, -1, -1));
+=======
         getContentPane().add(lbl_IDPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 44, -1, -1));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
         lbl_userName.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_userName.setForeground(new java.awt.Color(240, 240, 240));
         lbl_userName.setText("Usuario: ");
+<<<<<<< HEAD
+        getContentPane().add(lbl_userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 100, -1, -1));
+=======
         getContentPane().add(lbl_userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 76, -1, -1));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
         lbl_nombre.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_nombre.setForeground(new java.awt.Color(240, 240, 240));
         lbl_nombre.setText("Nombre:");
+<<<<<<< HEAD
+        getContentPane().add(lbl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 137, -1, -1));
+=======
         getContentPane().add(lbl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 108, -1, -1));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
         lbl_contra.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_contra.setForeground(new java.awt.Color(240, 240, 240));
         lbl_contra.setText("Contraseña: ");
+<<<<<<< HEAD
+        getContentPane().add(lbl_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 174, -1, -1));
+=======
         getContentPane().add(lbl_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 140, -1, -1));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
         lbl_numTel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_numTel.setForeground(new java.awt.Color(240, 240, 240));
         lbl_numTel.setText("Numero de Telefono:");
+<<<<<<< HEAD
+        getContentPane().add(lbl_numTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 211, -1, -1));
+=======
         getContentPane().add(lbl_numTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 172, -1, -1));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
+        lbl_rol.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_rol.setForeground(new java.awt.Color(240, 240, 240));
         lbl_rol.setText("Rol: ");
+<<<<<<< HEAD
+        getContentPane().add(lbl_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 285, -1, -1));
+
+        lbl_titulo.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        lbl_titulo.setForeground(new java.awt.Color(240, 240, 240));
+        lbl_titulo.setText("Perfil de Usuario");
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+=======
         getContentPane().add(lbl_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 236, -1, -1));
 
         lbl_titulo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_titulo.setText("Perfil de Usuario");
         getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
         btn_Actualizar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_Actualizar.setText("Actualizar datos");
@@ -125,7 +160,11 @@ public class Perfil extends javax.swing.JFrame {
                 btn_ActualizarActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+        getContentPane().add(btn_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 550, -1, -1));
+=======
         getContentPane().add(btn_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 482, -1, -1));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
         btn_cancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_cancelar.setText("Cancelar");
@@ -134,6 +173,25 @@ public class Perfil extends javax.swing.JFrame {
                 btn_cancelarActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+        getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 550, -1, -1));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Actualizar datos"));
+
+        lbl_contra1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_contra1.setText("Numero Telefono: ");
+
+        lbl_numTel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_numTel1.setText("Direccion: ");
+
+        lbl_userName1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_userName1.setText("Usuario: ");
+
+        lbl_nombre1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_nombre1.setText("Nombre:");
+
+        lbl_contrasena.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+=======
         getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 482, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Actualizar datos"));
@@ -150,6 +208,7 @@ public class Perfil extends javax.swing.JFrame {
         lbl_nombre1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lbl_nombre1.setText("Nombre:");
 
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
         lbl_contrasena.setText("Contraseña:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -164,10 +223,23 @@ public class Perfil extends javax.swing.JFrame {
                         .addGap(74, 74, 74)
                         .addComponent(txt_nombre))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_contra1)
-                        .addGap(26, 26, 26)
-                        .addComponent(txt_numTel))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_userName1)
+                            .addComponent(lbl_contrasena))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                            .addComponent(txt_contra)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_numTel1)
+                            .addComponent(lbl_contra1))
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_numTel)
+                            .addComponent(txt_direccion))))
+=======
                         .addComponent(lbl_numTel1)
                         .addGap(65, 65, 65)
                         .addComponent(txt_direccion))
@@ -179,6 +251,7 @@ public class Perfil extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                             .addComponent(txt_contra))))
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -192,7 +265,11 @@ public class Perfil extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_contrasena)
                     .addComponent(txt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_nombre1)
                     .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -207,11 +284,21 @@ public class Perfil extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+<<<<<<< HEAD
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 322, -1, -1));
+=======
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 268, -1, -1));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
         lbl_direccion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_direccion.setForeground(new java.awt.Color(240, 240, 240));
         lbl_direccion.setText("Direccion:");
+<<<<<<< HEAD
+        getContentPane().add(lbl_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 248, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/perfil/111.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 580));
+=======
         getContentPane().add(lbl_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 204, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -275,6 +362,7 @@ public class Perfil extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/perfil/11.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 580, 280));
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -345,7 +433,10 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JButton btn_Actualizar;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JLabel jLabel1;
+<<<<<<< HEAD
+=======
     private javax.swing.JLabel jLabel2;
+>>>>>>> 9f878da9847ef70cf9a1abcd6f8bc740478fcc0a
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_IDPersona;
     private javax.swing.JLabel lbl_contra;
