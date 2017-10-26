@@ -42,6 +42,7 @@ public class Inventario extends javax.swing.JFrame {
         this.txt_cantidad.setText("");
         this.txt_fechaVto.setText("");
         this.txt_unidades.setText("");
+        this.txt_idProducto.setText("");
     }
     
     //Este metodo carga el modelo de la tabla de inventarios
@@ -151,13 +152,13 @@ public class Inventario extends javax.swing.JFrame {
         getContentPane().add(txt_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, 379, -1));
 
         btn_agregar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btn_agregar.setText("Agregar");
+        btn_agregar.setText("Agregar Producto");
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 330, 140, 50));
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 340, 200, 50));
 
         btn_atras.setText("Atras");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -202,13 +203,13 @@ public class Inventario extends javax.swing.JFrame {
         getContentPane().add(lbl_fechavto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
 
         btn_actualizar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btn_actualizar.setText("Actualizar");
+        btn_actualizar.setText("Modificar Producto");
         btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_actualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 140, 50));
+        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 200, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/inventario/closed_box 4x4.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, -30, 550, 460));

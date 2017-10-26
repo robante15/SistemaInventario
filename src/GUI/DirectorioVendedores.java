@@ -151,6 +151,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         this.buscar_cargarModeloTabla();
+        this.txt_buscar.setText("");
     }//GEN-LAST:event_btn_buscarActionPerformed
    
     /**

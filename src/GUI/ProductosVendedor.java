@@ -33,6 +33,14 @@ public class ProductosVendedor extends javax.swing.JFrame {
     }
     DefaultTableModel modeloTabla = new DefaultTableModel();
     
+    private void blanquearCampos(){
+        this.txt_cantidad.setText("");
+        this.txt_descripcion.setText("");
+        this.txt_precio.setText("");
+        this.txt_producto.setText("");
+        this.txt_unidad.setText("");
+    }
+    
     private void cargarColumnasTabla(){
         
         modeloTabla.addColumn("ID Producto");
@@ -56,6 +64,7 @@ public class ProductosVendedor extends javax.swing.JFrame {
         
         ProductosVenta nuevoProductoVendedor = factory.productosVenta(id_item,id_persona, Producto,precio , cantidad, unidad, descripcion);
         base.insertarProductoVendedor(nuevoProductoVendedor);
+        
     }
     
     private void cargarModeloTabla(String usuario){
@@ -207,6 +216,8 @@ public class ProductosVendedor extends javax.swing.JFrame {
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         BaseDatos base = factory.baseDatos();
         this.insertarProductoVendedor(base.obtenerID(usuario));
+        this.cargarModeloTabla(usuario);
+        this.blanquearCampos();
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     /**

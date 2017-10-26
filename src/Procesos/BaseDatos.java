@@ -384,7 +384,7 @@ public class BaseDatos {
         ArrayList<VendedoresBD> listaVendedorBD = new ArrayList<VendedoresBD>();
         try {
             conn = DriverManager.getConnection(url, username, password);
-            String SQLQuery = "SELECT * FROM public.usuario WHERE rol='Vendedor' AND nombre LIKE '"+busqueda+"%'";
+            String SQLQuery = "SELECT * FROM public.usuario WHERE rol='Vendedor' AND nombre ILIKE '"+busqueda+"%'";
             st = conn.prepareStatement(SQLQuery);
             rs = st.executeQuery();
             

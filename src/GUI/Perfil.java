@@ -27,6 +27,14 @@ public class Perfil extends javax.swing.JFrame {
         this.usuario = usuario;
         this.rellenarCampos();
     }
+    
+    private void blanquearCampos(){
+        this.txt_contra.setText("");
+        this.txt_direccion.setText("");
+        this.txt_nombre.setText("");
+        this.txt_numTel.setText("");
+        this.txt_usuario.setText("");
+    }
 
     private void rellenarCampos(){
         BaseDatos base = factory.baseDatos();
@@ -265,6 +273,7 @@ public class Perfil extends javax.swing.JFrame {
         base.actualizarUsuario(userActualizado);
         usuario = base.obtenerUsuariobyID(id_persona).getUsr_name();
         this.rellenarCampos();
+        this.blanquearCampos();
     }//GEN-LAST:event_btn_ActualizarActionPerformed
 
     /**
