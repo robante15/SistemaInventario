@@ -67,9 +67,11 @@ public class Perfil extends javax.swing.JFrame {
         lbl_numTel1 = new javax.swing.JLabel();
         lbl_userName1 = new javax.swing.JLabel();
         lbl_nombre1 = new javax.swing.JLabel();
-        txt_nomre = new javax.swing.JTextField();
+        txt_nombre = new javax.swing.JTextField();
         txt_numTel = new javax.swing.JTextField();
         txt_direccion = new javax.swing.JTextField();
+        lbl_contrasena = new javax.swing.JLabel();
+        txt_contra = new javax.swing.JTextField();
         lbl_direccion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -95,6 +97,11 @@ public class Perfil extends javax.swing.JFrame {
         lbl_titulo.setText("Perfil de Usuario");
 
         btn_Actualizar.setText("Actualizar datos");
+        btn_Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ActualizarActionPerformed(evt);
+            }
+        });
 
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -113,21 +120,19 @@ public class Perfil extends javax.swing.JFrame {
 
         lbl_nombre1.setText("Nombre:");
 
+        lbl_contrasena.setText("Contraseña:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_userName1)
-                        .addGap(72, 72, 72)
-                        .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_nombre1)
                         .addGap(74, 74, 74)
-                        .addComponent(txt_nomre))
+                        .addComponent(txt_nombre))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_contra1)
                         .addGap(26, 26, 26)
@@ -135,7 +140,15 @@ public class Perfil extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_numTel1)
                         .addGap(65, 65, 65)
-                        .addComponent(txt_direccion)))
+                        .addComponent(txt_direccion))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_userName1)
+                            .addComponent(lbl_contrasena))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                            .addComponent(txt_contra))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,8 +160,12 @@ public class Perfil extends javax.swing.JFrame {
                     .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_contrasena)
+                    .addComponent(txt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_nombre1)
-                    .addComponent(txt_nomre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_contra1)
@@ -157,7 +174,7 @@ public class Perfil extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_numTel1)
                     .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         lbl_direccion.setText("Direccion:");
@@ -166,31 +183,30 @@ public class Perfil extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Actualizar)
+                .addGap(49, 49, 49)
+                .addComponent(btn_cancelar)
+                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(lbl_titulo))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_Actualizar)
-                                .addGap(49, 49, 49)
-                                .addComponent(btn_cancelar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_contra)
-                                    .addComponent(lbl_nombre)
-                                    .addComponent(lbl_userName)
-                                    .addComponent(lbl_IDPersona)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lbl_rol, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbl_numTel)
-                                        .addComponent(lbl_direccion, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addGap(12, 12, 12)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_contra)
+                            .addComponent(lbl_nombre)
+                            .addComponent(lbl_userName)
+                            .addComponent(lbl_IDPersona)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbl_rol, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_numTel)
+                                .addComponent(lbl_direccion, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(lbl_titulo)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,12 +228,12 @@ public class Perfil extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lbl_rol)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Actualizar)
                     .addComponent(btn_cancelar))
-                .addGap(42, 42, 42))
+                .addContainerGap())
         );
 
         pack();
@@ -238,9 +254,17 @@ public class Perfil extends javax.swing.JFrame {
             vendedor.setVisible(true);
             this.dispose();
         }
-        
-        
     }//GEN-LAST:event_cerrando
+
+    private void btn_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActualizarActionPerformed
+        BaseDatos base = factory.baseDatos();
+        //UsuarioBD perfil = base.obtenerUsuario(usuario);
+        UsuarioBD userActualizado = factory.usuarioBD(id_persona, this.txt_usuario.getText(), 
+                this.txt_nombre.getText(), this.txt_contra.getText(), Integer.parseInt(this.txt_numTel.getText()), 
+                this.txt_direccion.getText(), rol);
+        base.actualizarUsuario(userActualizado);
+        usuario = base.obtenerUsuariobyID(id_persona).getUsr_name();
+    }//GEN-LAST:event_btn_ActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,6 +308,7 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_IDPersona;
     private javax.swing.JLabel lbl_contra;
     private javax.swing.JLabel lbl_contra1;
+    private javax.swing.JLabel lbl_contrasena;
     private javax.swing.JLabel lbl_direccion;
     private javax.swing.JLabel lbl_nombre;
     private javax.swing.JLabel lbl_nombre1;
@@ -293,8 +318,9 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JLabel lbl_userName;
     private javax.swing.JLabel lbl_userName1;
+    private javax.swing.JTextField txt_contra;
     private javax.swing.JTextField txt_direccion;
-    private javax.swing.JTextField txt_nomre;
+    private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_numTel;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables

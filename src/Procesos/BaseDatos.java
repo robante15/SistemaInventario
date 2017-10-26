@@ -69,6 +69,71 @@ public class BaseDatos {
         }
     }
     
+    public void actualizarUsuario(UsuarioBD usuarioNuevo){
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            int id_personal = usuarioNuevo.getId_persona();
+            String usr_name = usuarioNuevo.getUsr_name();
+            String nombre = usuarioNuevo.getNombre();
+            String contra = usuarioNuevo.getContra();
+            int numTel = usuarioNuevo.getNum_tel();
+            String direccion = usuarioNuevo.getDireccion();
+            String rol = usuarioNuevo.getRol();
+            
+            String SQLQuery = "UPDATE public.usuario "
+                    + "SET usr_name = '"+usr_name+"', nombre = '"+nombre+"', contra = '"+contra+"', num_tel = "+numTel+", "
+                    + "direccion = '"+direccion+"', rol = '"+rol+"' "
+                    + "WHERE id_persona='"+id_personal+"'";
+            
+            
+            st = conn.prepareStatement(SQLQuery);
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro actualizado correctamente");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    
+    public void actualizarInventario(ProductosInventBD productoInventNuevo){
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            int id_item = productoInventNuevo.getId_item();
+            int id_persona = productoInventNuevo.getId_persona();
+            String producto = productoInventNuevo.getProducto();
+            String descripcion = productoInventNuevo.getDescripcion();
+            Double cantidad = productoInventNuevo.getCantidad();
+            String fechaVto = productoInventNuevo.getFechaVenc();
+            String unidad = productoInventNuevo.getUnidad();
+            
+            String SQLQuery = "UPDATE public.inventario "
+                    + "SET id_persona = '"+id_persona+"', producto = '"+producto+"', descripcion = '"+descripcion+"', cantidad = "+cantidad+", "
+                    + "fecha_vencimiento = '"+fechaVto+"', unidad = '"+unidad+"' "
+                    + "WHERE id_item='"+id_item+"'";
+            
+            
+            st = conn.prepareStatement(SQLQuery);
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro actualizado correctamente");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    
+    
     
     
     public void insertarProductoInventario(ProductosInventBD producto){
@@ -194,6 +259,40 @@ public class BaseDatos {
         return perfil;
     }
     
+    public UsuarioBD obtenerUsuariobyID(int id_persona){
+        factory = new Factory();
+        UsuarioBD perfil = null;
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT * FROM public.usuario WHERE id_persona='"+id_persona+"'";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                int id_personal = rs.getInt("id_persona");
+                String usr_name = rs.getString("usr_name");
+                String nombre = rs.getString("nombre");
+                String contra  = rs.getString("contra");
+                int num_tel = rs.getInt("num_tel");
+                String direccion = rs.getString("direccion");
+                String rol = rs.getString("rol");
+                perfil = factory.usuarioBD(id_personal, usr_name,nombre,contra,num_tel,direccion,rol);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return perfil;
+    }
+    
     public String obtenerRol(String usuario){
         String rol = "";
         try {
@@ -287,12 +386,12 @@ public class BaseDatos {
     }
     
     
-    public ArrayList<ProductosInventBD> obtenerInventario(){
+    public ArrayList<ProductosInventBD> obtenerInventario(int id_personal){
         factory = new Factory();
         ArrayList<ProductosInventBD> listaInventarioBD = new ArrayList<ProductosInventBD>();
         try {
             conn = DriverManager.getConnection(url, username, password);
-            String SQLQuery = "SELECT * FROM public.inventario WHERE id_persona=1";
+            String SQLQuery = "SELECT * FROM public.inventario WHERE id_persona="+id_personal+"";
             st = conn.prepareStatement(SQLQuery);
             rs = st.executeQuery();
             

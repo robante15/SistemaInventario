@@ -17,12 +17,17 @@ import SistemaBD.*;
 public class Inventario extends javax.swing.JFrame {
     private static Factory factory;
     static String usuario;
+    static int id_personal;
+    static int id_persona;
     /**
      * Creates new form Inventario
      */
     public Inventario(String usuario) {
         factory = new Factory();
         this.usuario = usuario;
+        BaseDatos base = factory.baseDatos();
+        UsuarioBD perfil = base.obtenerUsuario(usuario);
+        id_persona = perfil.getId_persona();
         initComponents();
         this.setLocationRelativeTo(null);
         cargarColumnasTabla();
@@ -34,7 +39,7 @@ public class Inventario extends javax.swing.JFrame {
     //Este metodo carga el modelo de la tabla de inventarios
     private void rellenarTabla(){
         int id_item = 0;
-        int id_persona = Integer.parseInt(this.txt_idPersona.getText());
+        int id_persona = Integer.parseInt(this.txt_idProducto.getText());
         String Producto = this.txt_producto.getText();
         String descripcion = this.txt_descripcion.getText();
         Double cantidad = Double.parseDouble(this.txt_cantidad.getText());
@@ -59,7 +64,9 @@ public class Inventario extends javax.swing.JFrame {
 
     private void cargarModeloTabla(){
         BaseDatos base = new BaseDatos();
-        ArrayList<ProductosInventBD> listaInventario = base.obtenerInventario();
+        UsuarioBD usuarioEnUso = base.obtenerUsuario(usuario);
+        id_personal = usuarioEnUso.getId_persona();
+        ArrayList<ProductosInventBD> listaInventario = base.obtenerInventario(id_personal);
         int numeroVendedores = listaInventario.size();
         modeloTabla.setNumRows(numeroVendedores);
         
@@ -95,22 +102,23 @@ public class Inventario extends javax.swing.JFrame {
         lbl_inventario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaInventario = new javax.swing.JTable();
-        txt_idPersona = new javax.swing.JTextField();
+        txt_idProducto = new javax.swing.JTextField();
         txt_producto = new javax.swing.JTextField();
         btn_agregar = new javax.swing.JButton();
         btn_atras = new javax.swing.JButton();
-        lbl_idPersona = new javax.swing.JLabel();
+        lbl_idProducto = new javax.swing.JLabel();
         lbl_producto = new javax.swing.JLabel();
         lbl_descripcion = new javax.swing.JLabel();
         txt_descripcion = new javax.swing.JTextField();
         lbl_cantidad = new javax.swing.JLabel();
         txt_cantidad = new javax.swing.JTextField();
+        txt_fechaVto = new javax.swing.JTextField();
         lbl_unidades = new javax.swing.JLabel();
         txt_unidades = new javax.swing.JTextField();
+        lbl_fechavto = new javax.swing.JLabel();
         btn_actualizar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txt_fechaVto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -131,8 +139,8 @@ public class Inventario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaInventario);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 1020, 320));
-        getContentPane().add(txt_idPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 379, -1));
-        getContentPane().add(txt_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 379, -1));
+        getContentPane().add(txt_idProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 110, 379, -1));
+        getContentPane().add(txt_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, 379, -1));
 
         btn_agregar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btn_agregar.setText("Agregar");
@@ -151,33 +159,39 @@ public class Inventario extends javax.swing.JFrame {
         });
         getContentPane().add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1081, 11, -1, -1));
 
-        lbl_idPersona.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        lbl_idPersona.setForeground(new java.awt.Color(240, 240, 240));
-        lbl_idPersona.setText("ID Persona");
-        getContentPane().add(lbl_idPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
+        lbl_idProducto.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        lbl_idProducto.setForeground(new java.awt.Color(240, 240, 240));
+        lbl_idProducto.setText("ID Producto");
+        getContentPane().add(lbl_idProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
 
         lbl_producto.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_producto.setForeground(new java.awt.Color(240, 240, 240));
         lbl_producto.setText("Producto");
-        getContentPane().add(lbl_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
+        getContentPane().add(lbl_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, -1));
 
         lbl_descripcion.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_descripcion.setForeground(new java.awt.Color(240, 240, 240));
         lbl_descripcion.setText("Descripcion");
-        getContentPane().add(lbl_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
-        getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 461, -1));
+        getContentPane().add(lbl_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, -1, -1));
+        getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(731, 210, 380, -1));
 
         lbl_cantidad.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_cantidad.setForeground(new java.awt.Color(240, 240, 240));
         lbl_cantidad.setText("Cantidad");
         getContentPane().add(lbl_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
         getContentPane().add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 96, -1));
+        getContentPane().add(txt_fechaVto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 379, -1));
 
         lbl_unidades.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lbl_unidades.setForeground(new java.awt.Color(240, 240, 240));
         lbl_unidades.setText("Unidades");
         getContentPane().add(lbl_unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 260, -1, -1));
         getContentPane().add(txt_unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 260, 152, -1));
+
+        lbl_fechavto.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        lbl_fechavto.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_fechavto.setText("Fecha de Vencimiento");
+        getContentPane().add(lbl_fechavto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
 
         btn_actualizar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btn_actualizar.setText("Actualizar");
@@ -193,7 +207,6 @@ public class Inventario extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/inventario/fondo4.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 750));
-        getContentPane().add(txt_fechaVto, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 182, 379, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(240, 240, 240));
@@ -213,7 +226,14 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_atrasActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-       this.rellenarTabla();
+       BaseDatos base = factory.baseDatos();
+        //UsuarioBD perfil = base.obtenerUsuario(usuario);
+        
+        ProductosInventBD productoActualizado = factory.productosInventBD(Integer.parseInt(this.txt_idProducto.getText()), id_persona, 
+                this.txt_producto.getText(), this.txt_descripcion.getText(), Double.parseDouble(this.txt_cantidad.getText()), 
+                this.txt_fechaVto.getText(), this.txt_unidades.getText());
+        
+        base.actualizarInventario(productoActualizado);
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     private void cerrando(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_cerrando
@@ -267,7 +287,8 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_cantidad;
     private javax.swing.JLabel lbl_descripcion;
-    private javax.swing.JLabel lbl_idPersona;
+    private javax.swing.JLabel lbl_fechavto;
+    private javax.swing.JLabel lbl_idProducto;
     private javax.swing.JLabel lbl_inventario;
     private javax.swing.JLabel lbl_producto;
     private javax.swing.JLabel lbl_unidades;
@@ -275,7 +296,7 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JTextField txt_cantidad;
     private javax.swing.JTextField txt_descripcion;
     private javax.swing.JTextField txt_fechaVto;
-    private javax.swing.JTextField txt_idPersona;
+    private javax.swing.JTextField txt_idProducto;
     private javax.swing.JTextField txt_producto;
     private javax.swing.JTextField txt_unidades;
     // End of variables declaration//GEN-END:variables
