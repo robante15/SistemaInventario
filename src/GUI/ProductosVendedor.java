@@ -134,10 +134,12 @@ public class ProductosVendedor extends javax.swing.JFrame {
                 btn_atrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 20, 90, 20));
+        getContentPane().add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 90, 20));
 
+        lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_usuario.setForeground(new java.awt.Color(240, 240, 240));
         lbl_usuario.setText("Usuario:");
-        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1095, 26, -1, -1));
+        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, -1, -1));
         getContentPane().add(txt_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 200, 20));
         getContentPane().add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 200, 20));
         getContentPane().add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 50, 20));

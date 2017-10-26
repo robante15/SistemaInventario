@@ -48,7 +48,7 @@ public class GUIVendedor extends javax.swing.JFrame {
         lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(240, 240, 240));
         lbl_usuario.setText("Usuario:");
-        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 40, -1, -1));
+        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 40, -1, -1));
 
         btn_productos.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btn_productos.setText("Oferta de Productos");
