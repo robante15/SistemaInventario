@@ -58,6 +58,25 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         }
     }
     
+    private void buscar_cargarModeloTabla(){
+        BaseDatos base = new BaseDatos();
+        ArrayList<VendedoresBD> listaVendedores = base.buscarVendedores(this.txt_buscar.getText());
+        int numeroVendedores = listaVendedores.size();
+        modeloTabla.setNumRows(numeroVendedores);
+        
+        for(int i =0;i<numeroVendedores;i++){
+            VendedoresBD vendedores = listaVendedores.get(i);
+            
+            String nombre = vendedores.getNombre();
+            String numTel = String.valueOf(vendedores.getNum_tel());
+            String direccion = vendedores.getDireccion();
+            
+            modeloTabla.setValueAt(nombre, i, 0);
+            modeloTabla.setValueAt(numTel, i, 1);
+            modeloTabla.setValueAt(direccion, i, 2);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,6 +89,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table_vendedores = new javax.swing.JTable();
         lbl_buscar = new javax.swing.JLabel();
+        btn_buscar = new javax.swing.JButton();
         txt_buscar = new javax.swing.JTextField();
         btn_atras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -92,6 +112,14 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         lbl_buscar.setForeground(new java.awt.Color(240, 240, 240));
         lbl_buscar.setText("Buscar");
         getContentPane().add(lbl_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        btn_buscar.setText("Buscar");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
         getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 215, -1));
 
         btn_atras.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
@@ -120,6 +148,10 @@ public class DirectorioVendedores extends javax.swing.JFrame {
         cliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cerrando
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        this.buscar_cargarModeloTabla();
+    }//GEN-LAST:event_btn_buscarActionPerformed
    
     /**
      * @param args the command line arguments
@@ -158,6 +190,7 @@ public class DirectorioVendedores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atras;
+    private javax.swing.JButton btn_buscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_buscar;

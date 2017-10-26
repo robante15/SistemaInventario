@@ -35,6 +35,7 @@ public class GUICliente extends javax.swing.JFrame {
         menuItem_AcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Inventario - Cliente");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_inventario.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
