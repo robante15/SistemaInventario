@@ -19,7 +19,7 @@ public class InicioSesion {
     //DEPRECADO POR QUE LA CLASE BASEDATOS YA REALIZA ESTA COMPROVACION Y MEJOR
     public boolean Aprovacion_inicioSesion(String usuario, String contrasena){
         BaseDatos bd =  factory.baseDatos();
-        boolean inicio = bd.obtenerUsuario(usuario, contrasena);
+        boolean inicio = bd.ValidarLogin(usuario, contrasena);
         
         /*if(usuario.equals("robante15")&&contrasena.equals("0000")){
             inicio = true;

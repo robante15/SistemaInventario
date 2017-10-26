@@ -127,7 +127,7 @@ public class BaseDatos {
 
     /*-----------------------------------Metodos de Obtencion-----------------------------------*/
     
-    public boolean obtenerUsuario(String usuario, String contra){
+    public boolean ValidarLogin(String usuario, String contra){
         boolean aproved = false;
         try {
             conn = DriverManager.getConnection(url, username, password);
@@ -158,6 +158,40 @@ public class BaseDatos {
             }
         }
         return aproved;
+    }
+    
+    public UsuarioBD obtenerUsuario(String usuario){
+        factory = new Factory();
+        UsuarioBD perfil = null;
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT * FROM public.usuario WHERE usr_name='"+usuario+"'";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                int id_persona = rs.getInt("id_persona");
+                String usr_name = rs.getString("usr_name");
+                String nombre = rs.getString("nombre");
+                String contra  = rs.getString("contra");
+                int num_tel = rs.getInt("num_tel");
+                String direccion = rs.getString("direccion");
+                String rol = rs.getString("rol");
+                perfil = factory.usuarioBD(id_persona, usr_name,nombre,contra,num_tel,direccion,rol);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return perfil;
     }
     
     public String obtenerRol(String usuario){

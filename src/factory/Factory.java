@@ -28,8 +28,8 @@ public class Factory {
         return new BaseDatos();
     }
     
-    public UsuarioBD usuarioBD(String usr_name, String nombre, String contra, int num_tel, String Direccion, String rol){
-        return new UsuarioBD(usr_name, nombre, contra, num_tel, Direccion, rol);
+    public UsuarioBD usuarioBD(int id_persona,String usr_name, String nombre, String contra, int num_tel, String Direccion, String rol){
+        return new UsuarioBD(id_persona, usr_name, nombre, contra, num_tel, Direccion, rol);
     }
     
     public VendedoresBD vendedorBD(String nombre, int num_tel, String Direccion){
@@ -71,6 +71,10 @@ public class Factory {
     
     public GUIVendedor GUIvendedor(String usuario){
         return new GUIVendedor(usuario);
+    }
+    
+    public Perfil GUIPerfil(String usuario){
+        return new Perfil(usuario);
     } 
     
     public ProductosVendedor productosVendedor(String usuario){

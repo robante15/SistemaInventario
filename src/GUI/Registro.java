@@ -167,7 +167,7 @@ public class Registro extends javax.swing.JFrame {
         System.out.print(B_rol);
         String rol = B_rol.toString();
         System.out.print(rol);
-        UsuarioBD usuario = factory.usuarioBD(usr_name, nombre, contra, num_tel, Direccion, rol);
+        UsuarioBD usuario = factory.usuarioBD(0,usr_name, nombre, contra, num_tel, Direccion, rol);
         BaseDatos bd = factory.baseDatos();
         bd.insertarUsuario(usuario);
     }//GEN-LAST:event_btn_aceptarActionPerformed

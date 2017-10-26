@@ -26,7 +26,8 @@ public class GUICliente extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         btn_agenda = new javax.swing.JButton();
         lbl_usuario = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btn_perfil = new javax.swing.JButton();
+        lbl_fondo = new javax.swing.JLabel();
         MenuBar_Principal = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
         menuItem_salir = new javax.swing.JMenuItem();
@@ -61,10 +62,18 @@ public class GUICliente extends javax.swing.JFrame {
         lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_usuario.setText("Usuario: ");
-        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, -1, -1));
+        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente/fondo5.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
+        btn_perfil.setText("Perfil");
+        btn_perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_perfilActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 110, 80));
+
+        lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente/fondo5.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
 
         menu_archivo.setText("Archivo");
 
@@ -108,6 +117,12 @@ public class GUICliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_inventarioActionPerformed
 
+    private void btn_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_perfilActionPerformed
+        Perfil perfil = factory.GUIPerfil(usuario);
+        perfil.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_perfilActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,9 +163,10 @@ public class GUICliente extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar_Principal;
     private javax.swing.JButton btn_agenda;
     private javax.swing.JButton btn_inventario;
+    private javax.swing.JButton btn_perfil;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JLabel lbl_fondo;
     private javax.swing.JLabel lbl_usuario;
     private javax.swing.JMenuItem menuItem_AcercaDe;
     private javax.swing.JMenuItem menuItem_salir;

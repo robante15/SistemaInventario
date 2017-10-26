@@ -109,7 +109,7 @@ public class Login extends javax.swing.JFrame {
         String Usuario = this.txt_usuario.getText();
         String contrasena = this.txt_contrasena.getText();
         BaseDatos sesion = factory.baseDatos();
-        boolean aprovada = sesion.obtenerUsuario(Usuario, contrasena);
+        boolean aprovada = sesion.ValidarLogin(Usuario, contrasena);
         
         if (aprovada == true){
             if(sesion.obtenerRol(Usuario).equals("Cliente")){

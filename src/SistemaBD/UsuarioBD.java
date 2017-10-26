@@ -13,7 +13,8 @@ public class UsuarioBD {
     private String Direccion;
     private String rol;
 
-    public UsuarioBD(String usr_name, String nombre, String contra, int num_tel, String Direccion, String rol) {
+    public UsuarioBD(int id_persona, String usr_name, String nombre, String contra, int num_tel, String Direccion, String rol) {
+        this.id_persona = id_persona;
         this.usr_name = usr_name;
         this.nombre = nombre;
         this.contra = contra;

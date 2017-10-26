@@ -32,7 +32,7 @@ public class Sistema {
         //conn.prueba();
         
         BaseDatos bd = factory.baseDatos();
-        boolean aprovado = bd.obtenerUsuario("robante125", "ROBert123");
+        boolean aprovado = bd.ValidarLogin("robante125", "ROBert123");
         System.out.print(aprovado);
         
         Login form = factory.login(); 

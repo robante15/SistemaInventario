@@ -38,8 +38,9 @@ public class GUIVendedor extends javax.swing.JFrame {
 
         lbl_usuario = new javax.swing.JLabel();
         btn_productos = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        btn_perfil = new javax.swing.JButton();
+        lbl_cajita = new javax.swing.JLabel();
+        lbl_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Inventario - Vendedor");
@@ -48,7 +49,7 @@ public class GUIVendedor extends javax.swing.JFrame {
         lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(240, 240, 240));
         lbl_usuario.setText("Usuario:");
-        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 40, -1, -1));
+        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
 
         btn_productos.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btn_productos.setText("Oferta de Productos");
@@ -59,11 +60,19 @@ public class GUIVendedor extends javax.swing.JFrame {
         });
         getContentPane().add(btn_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 32, 264, 84));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/provendedor/productapplication_producto_3010.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
+        btn_perfil.setText("Perfil");
+        btn_perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_perfilActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 10, 120, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/vendedor/fobdo6.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 550));
+        lbl_cajita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/provendedor/productapplication_producto_3010.png"))); // NOI18N
+        getContentPane().add(lbl_cajita, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
+
+        lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/vendedor/fobdo6.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -73,6 +82,12 @@ public class GUIVendedor extends javax.swing.JFrame {
         productosV.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_productosActionPerformed
+
+    private void btn_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_perfilActionPerformed
+        Perfil perfil = factory.GUIPerfil(usuario);
+        perfil.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_perfilActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,9 +125,10 @@ public class GUIVendedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_perfil;
     private javax.swing.JButton btn_productos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl_cajita;
+    private javax.swing.JLabel lbl_fondo;
     private javax.swing.JLabel lbl_usuario;
     // End of variables declaration//GEN-END:variables
 }
