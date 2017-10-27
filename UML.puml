@@ -1,0 +1,39 @@
+@startuml
+
+class GUI.DirectorioVendedores
+class GUI.GUICliente
+class GUI.GUIVendedor
+class GUI.Inventario
+class GUI.Login
+class GUI.Perfil
+class GUI.PlanCompra
+class GUI.ProductosVendedor
+class GUI.Registro
+class Procesos.AgendaVendedores
+class Procesos.BaseDatos
+class Procesos.Conexion
+class Procesos.InicioSesion
+class SistemaBD.ProductosInventBD
+class SistemaBD.ProductosVenta
+class SistemaBD.UsuarioBD
+class SistemaBD.VendedoresBD
+class factory.Factory
+class sistema.Sistema
+
+GUI.DirectorioVendedores ..> factory.Factory
+GUI.GUICliente ..> factory.Factory
+GUI.GUIVendedor ..> factory.Factory
+GUI.Inventario ..> factory.Factory
+SistemaBD.VendedoresBD ..> factory.Factory
+SistemaBD.ProductosInventBD ..> factory.Factory
+SistemaBD.UsuarioBD ..> factory.Factory
+SistemaBD.ProductosVenta ..> factory.Factory
+GUI.Login ..> factory.Factory
+GUI.Perfil ..> factory.Factory
+GUI.PlanCompra ..> factory.Factory
+GUI.ProductosVendedor ..> factory.Factory
+GUI.Registro ..> factory.Factory
+Procesos.BaseDatos ..> factory.Factory
+Procesos.InicioSesion ..> factory.Factory
+sistema.Sistema ..> factory.Factory
+@enduml
