@@ -23,6 +23,7 @@ public class Perfil extends javax.swing.JFrame {
      */
     public Perfil(String usuario) {
         initComponents();
+        this.setLocationRelativeTo(null);
         factory = new Factory();
         this.usuario = usuario;
         this.rellenarCampos();

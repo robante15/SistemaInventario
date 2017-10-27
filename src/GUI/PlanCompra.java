@@ -25,6 +25,7 @@ public class PlanCompra extends javax.swing.JFrame {
      */
     public PlanCompra(String usuario) {
         initComponents();
+        this.setLocationRelativeTo(null);
         factory = new Factory();
         this.usuario = usuario;
         cargarColumnasTabla();
@@ -121,6 +122,7 @@ public class PlanCompra extends javax.swing.JFrame {
         lbl_buscar = new javax.swing.JLabel();
         btn_buscar = new javax.swing.JButton();
         btn_todos = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Plan de Compra");
@@ -129,20 +131,32 @@ public class PlanCompra extends javax.swing.JFrame {
                 cerrando(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_atras.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_atras.setText("Atras");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_atrasActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1168, 11, -1, -1));
 
         jTable1.setModel(modeloTabla);
         jScrollPane1.setViewportView(jTable1);
 
-        lbl_productosDisponibles.setText("Productos Disponibles");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 140, 1189, 419));
 
+        lbl_productosDisponibles.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_productosDisponibles.setForeground(new java.awt.Color(240, 240, 240));
+        lbl_productosDisponibles.setText("Productos Disponibles");
+        getContentPane().add(lbl_productosDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 295, -1));
+
+        lbl_buscar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbl_buscar.setForeground(new java.awt.Color(240, 240, 240));
         lbl_buscar.setText("Buscar Producto");
+        getContentPane().add(lbl_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +164,7 @@ public class PlanCompra extends javax.swing.JFrame {
                 btn_buscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
 
         btn_todos.setText("Mostrar Todos");
         btn_todos.addActionListener(new java.awt.event.ActionListener() {
@@ -157,49 +172,10 @@ public class PlanCompra extends javax.swing.JFrame {
                 btn_todosActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_todos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_buscar)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_productosDisponibles)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_atras)))
-                .addGap(26, 26, 26))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(291, 291, 291)
-                .addComponent(btn_todos)
-                .addGap(38, 38, 38)
-                .addComponent(btn_buscar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_atras)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_buscar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_buscar)
-                    .addComponent(btn_todos))
-                .addGap(3, 3, 3)
-                .addComponent(lbl_productosDisponibles)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                .addGap(29, 29, 29))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/vendedor/fobdo6.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -261,6 +237,7 @@ public class PlanCompra extends javax.swing.JFrame {
     private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_todos;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_buscar;
