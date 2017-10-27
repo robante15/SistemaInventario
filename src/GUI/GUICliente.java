@@ -48,8 +48,8 @@ public class GUICliente extends javax.swing.JFrame {
         });
         getContentPane().add(btn_inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 168, 119));
 
-        btn_planCompra.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btn_planCompra.setText("Plan de compra");
+        btn_planCompra.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        btn_planCompra.setText("Productos Disponibles");
         btn_planCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_planCompraActionPerformed(evt);
