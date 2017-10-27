@@ -23,7 +23,7 @@ public class GUICliente extends javax.swing.JFrame {
     private void initComponents() {
 
         btn_inventario = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_planCompra = new javax.swing.JButton();
         btn_agenda = new javax.swing.JButton();
         lbl_usuario = new javax.swing.JLabel();
         btn_perfil = new javax.swing.JButton();
@@ -48,9 +48,14 @@ public class GUICliente extends javax.swing.JFrame {
         });
         getContentPane().add(btn_inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 168, 119));
 
-        jButton2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jButton2.setText("Plan de compra");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 168, 119));
+        btn_planCompra.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btn_planCompra.setText("Plan de compra");
+        btn_planCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_planCompraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_planCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 168, 119));
 
         btn_agenda.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btn_agenda.setText("Agenda de vendedores");
@@ -129,6 +134,12 @@ public class GUICliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_perfilActionPerformed
 
+    private void btn_planCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_planCompraActionPerformed
+        PlanCompra planCompraGUI = factory.planCompra(usuario);
+        planCompraGUI.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_planCompraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -170,7 +181,7 @@ public class GUICliente extends javax.swing.JFrame {
     private javax.swing.JButton btn_agenda;
     private javax.swing.JButton btn_inventario;
     private javax.swing.JButton btn_perfil;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_planCompra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JLabel lbl_fondo;

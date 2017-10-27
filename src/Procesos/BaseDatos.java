@@ -293,6 +293,40 @@ public class BaseDatos {
         return perfil;
     }
     
+    public UsuarioBD obtenerVendedorbyID(int id_persona){
+        factory = new Factory();
+        UsuarioBD perfil = null;
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT * FROM public.usuario WHERE id_persona='"+id_persona+"'";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                int id_personal = rs.getInt("id_persona");
+                String usr_name = rs.getString("usr_name");
+                String nombre = rs.getString("nombre");
+                String contra  = rs.getString("contra");
+                int num_tel = rs.getInt("num_tel");
+                String direccion = rs.getString("direccion");
+                String rol = rs.getString("rol");
+                perfil = factory.usuarioBD(id_personal, usr_name,nombre,contra,num_tel,direccion,rol);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return perfil;
+    }
+    
     public String obtenerRol(String usuario){
         String rol = "";
         try {
@@ -413,6 +447,8 @@ public class BaseDatos {
     }
     
     
+    
+    
     public ArrayList<ProductosInventBD> obtenerInventario(int id_personal){
         factory = new Factory();
         ArrayList<ProductosInventBD> listaInventarioBD = new ArrayList<ProductosInventBD>();
@@ -486,6 +522,79 @@ public class BaseDatos {
         return listaProductosVenta;
     }
     
+    public ArrayList<ProductosVenta> obtenerTodosProductos(){
+        factory = new Factory();
+        ArrayList<ProductosVenta> listaProductosVenta = new ArrayList<ProductosVenta>();
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT * FROM public.productos";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                int id_producto = rs.getInt("id_producto");
+                int id_persona = rs.getInt("id_persona");
+                String producto = rs.getString("producto");
+                Double precio = rs.getDouble("precio");
+                Double cantidad  = rs.getDouble("cantidad");
+                String unidad = rs.getString("unidad");
+                String Descripcion = rs.getString("descripcion");
+                
+
+                ProductosVenta productosBD = factory.productosVenta(id_producto, id_persona, producto, precio, cantidad, unidad, Descripcion);
+                listaProductosVenta.add(productosBD);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listaProductosVenta;
+    }
+    
+    public ArrayList<ProductosVenta> BuscarTodosProductos(String busqueda){
+        factory = new Factory();
+        ArrayList<ProductosVenta> listaProductosVenta = new ArrayList<ProductosVenta>();
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            String SQLQuery = "SELECT * FROM public.productos WHERE producto ILIKE '"+busqueda+"%' ORDER BY precio ASC";
+            st = conn.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                int id_producto = rs.getInt("id_producto");
+                int id_persona = rs.getInt("id_persona");
+                String producto = rs.getString("producto");
+                Double precio = rs.getDouble("precio");
+                Double cantidad  = rs.getDouble("cantidad");
+                String unidad = rs.getString("unidad");
+                String Descripcion = rs.getString("descripcion");
+                
+
+                ProductosVenta productosBD = factory.productosVenta(id_producto, id_persona, producto, precio, cantidad, unidad, Descripcion);
+                listaProductosVenta.add(productosBD);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listaProductosVenta;
+    }
     
     /*public ArrayList<UsuarioBD> obtenerUsuario(){
         ArrayList<UsuarioBD> listaUsuarioBD = new ArrayList<UsuarioBD>();

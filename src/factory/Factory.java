@@ -77,6 +77,10 @@ public class Factory {
         return new Perfil(usuario);
     } 
     
+    public PlanCompra planCompra(String usuario){
+        return new PlanCompra(usuario);
+    } 
+    
     public ProductosVendedor productosVendedor(String usuario){
         return new ProductosVendedor(usuario);
     } 
